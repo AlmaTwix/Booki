@@ -1,0 +1,110 @@
+body {
+    background-color: #FCFCFC;
+    margin: 20px 30px 30px 20px;
+    font-family: "Poppins";
+}
+
+main {
+    max-width: 1400px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center; /* alignement horizontal au centre */
+    align-items: center;
+}
+
+nav {
+    max-width: 1270px;
+    height: 35px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+  }
+
+  .logo {
+    height: 55px; /* Ajustez la hauteur du logo selon vos besoins */
+    margin-left: 2%;
+  }
+
+  .menu {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .menu a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: #333; /* Couleur du texte du menu */
+    font-size: 20px;
+    font-weight: bold ;
+  }
+  
+.contact {
+    margin-right: 2%;
+}
+
+  .contact a {
+    text-decoration: none;
+    color: black; /* Couleur du texte du bouton de contact */
+    font-size: 18px;
+    padding: 6px 40px;
+    border: 3px solid black; /* Couleur de la bordure du bouton de contact */
+    border-radius: 20px; /* Arrondir les coins du bouton */
+    transition: all 0.3s ease;
+    font-weight: bold ;
+  }
+  
+  .contact a:hover {
+    background-color: #372D61; /* Couleur de fond au survol du bouton */
+    color: #fff; /* Couleur du texte au survol du bouton */
+    border: 3px solid #372D61;
+  }
+
+
+  .social-menu {
+    position: fixed; /* Position fixe */
+    top: 30%; /* Centré verticalement */
+    right: 2%; /* Alignement à droite */
+    z-index: 1000; /* Assurez-vous que la barre est devant le contenu */
+  }
+  
+  .social-icons {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .social-icons i {
+    margin: 10px 0;
+  }
+  
+  .vertical-bar {
+    width: 2px; /* Largeur de la barre */
+    height: 132px; /* Hauteur de la barre */
+    background-color: black;
+    margin: 10px auto; /* Espacement entre les barres */
+  }
+  
+  .s1 {
+    display: flex;
+    justify-content: space-between; /* Pour répartir les éléments sur la ligne */
+    align-items: center; /* Pour aligner les éléments verticalement */
+}
+
+
+  .img_header {
+    width: 500px;
+  }
+
+  .Main_Title, .img_header, .ndimage {
+    flex: 1; /* Chaque élément prend autant de place que possible */
+    max-width: 100%; /* Pour assurer qu'ils ne dépassent pas de la section */
+    width: 100%; /* Pour qu'ils occupent toute la largeur disponible */
+  }
+
+  h3 {
+    font-family: "Petit Formal Script", cursive;
+  }
