@@ -1,20 +1,56 @@
+.link_hover_effect {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  overflow: hidden; /* Cache le contenu débordant */
+}
+
+.link_hover_effect::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transform: scaleX(0); /* Initialiser à zéro pour le cacher au départ */
+  transform-origin: left; /* Définir le point d'origine de la transformation à gauche */
+  transition: transform 300ms ease; /* Ajouter une transition pour une animation en douceur */
+}
+
+.link_hover_effect:hover::after {
+  transform: scaleX(1); /* Affiche la ligne lors du survol */
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/*Begin*/
+
+
+
+
 body {
     background-color: #FCFCFC;
-    margin: 20px 30px 30px 20px;
+    margin-top: 20px;
+    margin: 50px 0px 0px 0px;
     font-family: "Poppins";
 }
 
 main {
     max-width: 1400px;
-    margin: 50px auto;
-    display: flex;
+    margin: 40px auto;
     justify-content: center; /* alignement horizontal au centre */
     align-items: center;
 }
 
+/*HEADER*/
+
+
 nav {
     max-width: 1270px;
-    height: 35px;
+    height: 70px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -26,20 +62,22 @@ nav {
   }
 
   .logo {
-    height: 55px; /* Ajustez la hauteur du logo selon vos besoins */
+    height: 95px; /* Ajustez la hauteur du logo selon vos besoins */
     margin-left: 2%;
+    cursor: pointer;
   }
 
   .menu {
     flex-grow: 1;
     text-align: center;
+    margin-left: 10%;
   }
   
   .menu a {
     margin: 0 20px;
     text-decoration: none;
     color: #333; /* Couleur du texte du menu */
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold ;
   }
   
@@ -49,20 +87,24 @@ nav {
 
   .contact a {
     text-decoration: none;
-    color: black; /* Couleur du texte du bouton de contact */
-    font-size: 18px;
-    padding: 6px 40px;
-    border: 3px solid black; /* Couleur de la bordure du bouton de contact */
-    border-radius: 20px; /* Arrondir les coins du bouton */
+    color: white; /* Couleur du texte du bouton de contact */
+    font-size: 25px;
+    padding: 6px 60px;
+    border: 3px solid #372D61; /* Couleur de la bordure du bouton de contact */
+    border-radius: 40px; /* Arrondir les coins du bouton */
     transition: all 0.3s ease;
     font-weight: bold ;
+    background-color: #372D61;
   }
   
   .contact a:hover {
-    background-color: #372D61; /* Couleur de fond au survol du bouton */
+    background-color: #674cd3; /* Couleur de fond au survol du bouton */
     color: #fff; /* Couleur du texte au survol du bouton */
-    border: 3px solid #372D61;
+    border: 3px solid #674cd3;
   }
+
+
+  /*SOCIALS*/
 
 
   .social-menu {
@@ -79,6 +121,8 @@ nav {
   
   .social-icons i {
     margin: 10px 0;
+    transition: transform 0.4s;
+    cursor: pointer;
   }
   
   .vertical-bar {
@@ -87,24 +131,311 @@ nav {
     background-color: black;
     margin: 10px auto; /* Espacement entre les barres */
   }
+
+  .social-icons i:hover {
+    transform: scale(1.6); /* Agrandissement de 10% au survol */
+  }
+
+
+
+/* LANDPAGE S1*/
+
   
-  .s1 {
-    display: flex;
-    justify-content: space-between; /* Pour répartir les éléments sur la ligne */
-    align-items: center; /* Pour aligner les éléments verticalement */
+.s1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centre les éléments horizontalement */
+  text-align: center; /* Centre le texte dans les éléments */
+  justify-content: center;
 }
 
 
-  .img_header {
-    width: 500px;
-  }
 
-  .Main_Title, .img_header, .ndimage {
-    flex: 1; /* Chaque élément prend autant de place que possible */
-    max-width: 100%; /* Pour assurer qu'ils ne dépassent pas de la section */
-    width: 100%; /* Pour qu'ils occupent toute la largeur disponible */
-  }
+.img_header {
+  max-width: 100%; /* Pour s'assurer que l'image ne dépasse pas la largeur de son conteneur */
+  transition: transform 0.4s;
+  cursor: pointer;
+}
 
-  h3 {
+.img_header:hover {
+  transform: scale(1.1);
+}
+
+.ndimage {
+  position: absolute;
+  margin-top: 300px; /* Ajoute un espace en haut pour plus de clarté */
+  transition: transform 0.4s;
+  cursor: pointer;
+}
+
+.ndimage:hover {
+  transform: scale(1.1);
+}
+
+.Main_Title {
+  text-align: left;
+  position: absolute;
+  margin-right: 30%;
+  max-width: 600px;
+  margin-top: 90px;
+  z-index: 1;
+}
+
+
+.Name {
+    font-family: "David CLM", sans-serif; /* Police de caractères */
+    font-size: 48px; /* Taille de la police */
+    font-weight: bold;
+    color: black; /* Couleur du texte */
+    letter-spacing: 15px; /* Espacement entre les lettres */
+
+}
+
+.surname {
+  font-family: "David CLM", sans-serif; /* Police de caractères */
+    font-size: 36px; /* Taille de la police */
+    font-weight: bold;
+    color: black; /* Couleur du texte */
+    margin: 0;
+}
+
+.slogan {
     font-family: "Petit Formal Script", cursive;
+    font-size: 50px;
+    margin: 0;
+    background: linear-gradient(to top left, rgba(49, 0, 255, 1), black); /* Dégradé de bas à droite à haut à gauche */
+  -webkit-background-clip: text; /* Pour appliquer le dégradé au texte */
+  background-clip: text; /* Pour appliquer le dégradé au texte */
+  color: transparent; /* Rend le texte transparent pour que le dégradé soit visible */
+}
+
+.image_container {
+  position: relative;
+}
+
+.arrow_icon {
+  position: absolute;
+  bottom: 70px; /* Ajuster la position verticale selon vos besoins */
+  left: 50%; /* Centrer l'icône horizontalement */
+  transform: translateX(-50%); /* Centrer l'icône horizontalement */
+}
+
+.arrow_img {
+  width: 70px; /* Ajuster la taille de l'icône selon vos besoins */
+  height: 70px; /* Assurer que la hauteur soit égale à la largeur */
+  line-height: 70px; /* Centrer verticalement l'icône */
+  transition: transform 0.5s;
+  border: 4px solid #472BBE; /* Ajout d'une bordure */
+  border-radius: 50%; /* Création d'une bordure en cercle */
+  font-size: 40px; /* Taille de la police pour l'icône */
+  background-color: #472BBE;
+  color: black;
+}
+
+.arrow_icon:hover .arrow_img {
+  transform: scale(1.4); /* Grossir l'icône lorsqu'on survole dessus */
+  transition: transform 0.5s; /* Transition supplémentaire pour une animation en douceur */
+}
+
+.img_header:hover ~ .arrow_icon:hover .arrow_img {
+  transform: scale(1.8); /* Grossir davantage l'icône lorsqu'on survole l'image header et la flèche consécutivement */
+  transition: transform 0.5s; /* Transition supplémentaire pour une animation en douceur */
+}
+
+.nav_link_anchor {
+  scroll-behavior: smooth;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+.s2 {
+    margin-top: 200px;
   }
+
+
+
+
+/* TABLEAU DES OFFRES*/
+
+
+.Propositions {
+  margin-top: 50px;
+    display: flex;
+    justify-content: space-between; /* Distribue les éléments avec un espace entre eux */
+}
+
+.illustrations {
+  display: flex;
+  flex-direction: column; /* Les éléments sont disposés en colonne */
+  align-items: center; /* Aligner les éléments sur la droite */
+}
+
+.illustration {
+  margin-bottom: 15px;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.illustration:hover {
+  transform: scale(1.1); /* Grossissement de l'image lorsqu'on survole */
+}
+
+
+.table {
+    display: flex;
+    flex-direction: column;
+    max-width: 867px;
+    cursor: pointer;
+}
+
+.offer {
+    width: 867px;
+    height: 121px;
+    border-radius: 15px;
+    background-color: transparent;
+    margin-bottom: 20px; /* Espacement entre les offres */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.5s;
+    display: flex; /* Utilisation de Flexbox */
+    align-items: center; /* Pour centrer verticalement le contenu */
+}
+
+.offer:hover {
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre au survol */
+    transform: scale(1.1); /* Agrandissement de 10% au survol */
+  }
+
+.offer-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex: 1; /* Pour que les éléments occupent tout l'espace disponible */
+}
+
+.price {
+    font-family: "Petit Formal Script", cursive; /* Police de caractères */
+    font-size: 48px; /* Taille de la police */
+    color: black; /* Couleur du texte */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.name {
+    font-family: "David CLM", sans-serif; /* Police de caractères */
+    font-size: 48px; /* Taille de la police */
+    font-weight: bold;
+    color: black; /* Couleur du texte */
+    letter-spacing: 15px; /* Espacement entre les lettres */
+}
+
+
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.offer:hover .price {
+  color: #372D61; /* Changement de couleur du prix au survol */
+}
+
+
+.fa-arrow-right {
+  font-size: 34px;
+  border: 4px solid black; /* Ajout d'une bordure */
+    border-radius: 50%; /* Bordure circulaire */
+    padding: 15px; /* Optionnel : espace intérieur pour la bordure */
+}
+
+
+.offer .fa-arrow-right {
+  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease; /* Transition fluide par défaut */
+}
+
+.offer:hover .fa-arrow-right {
+  color: white;
+  border-color: #372D61; /* Couleur de la bordure */
+  background-color: #372D61; /* Couleur de fond */
+}
+
+
+.massages {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 500;
+  margin: 15px;
+}
+
+.s2 h2 {
+  text-align: center;
+  font-weight: 300;
+  font-size: 32px;
+  margin: 15px;
+}
+
+.separator {
+  width: 20%; /* Largeur de la ligne */
+  border: none; /* Supprimer la bordure par défaut */
+  border-top: 3px solid black; /* Ajouter une ligne horizontale */
+  margin: 10px auto; /* Espacement autour de la ligne et centrage horizontal */
+}
+
+.Tarifs {
+  align-items: center;
+  margin: auto; /* Pour centrer l'élément horizontalement */
+}
+
+.TS {
+  border: 3px solid black; /* Ajoute une bordure solide noire de 2 pixels */
+  padding: 20px 350px 20px 350px; /* Ajoute un espace intérieur autour du texte */
+  border-radius: 50px;
+  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.7s ease;
+  font-weight: bold;
+}
+
+.TS:hover {
+  background-color: #372D61;
+  border: 3px solid #372D61;
+  color: white;
+}
+
+
+
+/*FOOTER*/
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 20px; /* Ajoute de l'espace intérieur autour du texte */
+  height: 90px;
+  text-align: center; /* Centre le texte horizontalement */
+  display: flex; /* Utilisation de Flexbox */
+  justify-content: center; /* Centre le contenu horizontalement */
+  align-items: center; /* Centre le contenu verticalement */
+}
+
+footer p {
+  margin: 0; /* Supprime les marges par défaut du paragraphe */
+  font-size: 20px;
+  font-weight: 500;
+}
+
+footer a {
+  color: white; /* Couleur des liens */
+  text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Ajoute un soulignement au survol des liens */
+}
+
+
+
+
+
